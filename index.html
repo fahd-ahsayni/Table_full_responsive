@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            body {
+                @apply p-8 m-0 box-border bg-white container mx-auto
+            }
+
+
+            /* STYLE BACKGROUND BLUR */
+            .blur-bg {
+                @apply relative transform translate-y-8
+            }
+            .blur-bg > .circle {
+                @apply absolute h-72 w-72 rounded-full filter blur-3xl opacity-60
+            }
+            .blur-bg > .circle-one {
+                @apply bg-green-300
+            }
+            .blur-bg > .circle-three {
+                @apply bg-teal-300 top-20 left-40
+            }
+            .blur-bg > .circle-tow {
+                @apply bg-cyan-300 left-60
+            }
+
+            main {
+                @apply relative
+            }
+
+
+
+            /* TABLE STYLE */
+            .table-desktop {
+                @apply /*table { whidthe }*/ overflow-auto rounded shadow hidden md:block
+            }
+            .table-desktop > table {
+                @apply shadow w-full
+            }
+            
+            /* STYLE HEAD */
+            .table-desktop > table > thead {
+                @apply bg-gray-50 border-b-2 border-gray-200
+            }
+            .table-desktop > table > thead > tr > th {
+                @apply p-3 text-sm font-bold tracking-wide text-left capitalize
+            }
+
+
+            /* STYLE BODY */
+            .table-desktop > table > tbody {
+                @apply divide-y divide-gray-100
+            }
+            .table-desktop > table > tbody > tr:nth-child(odd) {
+                @apply bg-white
+            }
+            .table-desktop > table > tbody > tr:nth-child(even) {
+                @apply bg-gray-50
+            }
+            /* details */
+            .table-desktop > table > tbody > tr > td:nth-child(2) {
+                @apply w-3/6            
+            }
+            .table-desktop > table > tbody > tr > td,
+            .table-mobile > div > p {
+                @apply md:p-3 text-sm text-gray-700 whitespace-nowrap
+            }
+            /* Price */
+            .table-desktop > table > tbody > tr > td:last-child,
+            .table-mobile > div > p:last-child {
+                @apply font-medium
+            }
+            /* id */
+            .table-desktop > table > tbody > tr > td > a, 
+            .table-mobile > div > .head > a {
+                @apply font-bold text-blue-500 hover:text-blue-600
+            }
+            /* badge */
+            .table-desktop > table > tbody > tr > td > span,
+            .table-mobile > div > .head > span {
+                @apply py-1 px-2 capitalize tracking-wider rounded-lg font-medium
+            }
+            /* date */
+            .table-desktop > table > tbody > tr > td:nth-child(4),
+            .table-mobile > div > .head > p {
+                @apply text-gray-400 
+            }
+
+
+            /*BAGDE STYLE */
+            .badge-success {
+                @apply text-green-800 bg-green-200
+            }
+            .badge-danger {
+                @apply text-red-800 bg-red-200
+            }
+            .badge-warning {
+                @apply text-yellow-800 bg-yellow-200
+            }
+
+            /* TABLE MOBILE */
+            .table-mobile {
+                @apply grid grid-cols-1 gap-4 md:hidden
+            }
+            .table-mobile > div {
+                @apply space-y-4 bg-white p-4 rounded-lg shadow
+            }
+            .table-mobile > div > .head {
+                @apply flex items-center space-x-2 text-sm
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="blur-bg">
+        <div class="circle circle-one"></div>
+        <div class="circle circle-tow"></div>
+        <div class="circle circle-three"></div>
+    </div>
+    <main>
+        <div class="table-desktop">
+            <table>
+
+                <!-- table header -->
+
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>details</th>
+                        <th>status</th>
+                        <th>date</th>
+                        <th>total</th>
+                    </tr>
+                </thead>
+
+                <!-- table body -->
+
+                <tbody>
+
+                    <!--_______________________________________________________-->
+                    <tr>
+                        <td>
+                            <a href="#">#1001</a>
+                        </td>
+                        <td>lenovo i7 made in France</td>
+                        <td>
+                            <span class="badge-success">
+                                delivered
+                            </span>
+                        </td>
+                        <td>16/01/2021</td>
+                        <td>$200.00</td>
+                    </tr>
+                    <!--_______________________________________________________-->
+                    <tr>
+                        <td>
+                            <a href="#">#1002</a>
+                        </td>
+                        <td>hp i7 made in USA</td>
+                        <td>
+                            <span class="badge-warning">
+                                Shipped
+                            </span>
+                        </td>
+                        <td>11/04/2021</td>
+                        <td>$500.00</td>
+                    </tr>
+                    <!--_______________________________________________________-->
+                    <tr>
+                        <td><a href="#">#1003</a></td>
+                        <td>samsung i9 made in korea</td>
+                        <td>
+                            <span class="badge-danger">
+                                Cancelled
+                            </span>
+                        </td>
+                        <td>06/12/2022</td>
+                        <td>$1000.00</td>
+                    </tr>
+                    <!--_______________________________________________________-->
+                
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="table-mobile">
+            <!--_______________________________________________________-->
+            <div>
+                <div class="head">
+                    <a href="">#1001</a>
+                    <p>16/01/2021</p>
+                    <span class="badge-success">delivered</span>
+                </div>
+                <p>lonovo i7 made in france</p>
+                <p>$200.00</p>
+            </div>
+            <!--_______________________________________________________-->
+            <div>
+                <div class="head">
+                    <a href="">#1002</a>
+                    <p>11/04/2021</p>
+                    <span class="badge-warning">shipper</span>
+                </div>
+                <p>hp i7 made USA</p>
+                <p>$500.00</p>
+            </div>
+            <!--_______________________________________________________-->
+            <div>
+                <div class="head">
+                    <a href="">#1003</a>
+                    <p>12/06/2022</p>
+                    <span class="badge-danger">canceled</span>
+                </div>
+                <p>samsung i7 made in korea</p>
+                <p></p>
+            </div>
+    </main>
+    
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
